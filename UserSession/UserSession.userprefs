@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="UserSession/IUserPreferences.cs">
+    <Files>
+      <File FileName="UserSession/SessionManager.cs" Line="14" Column="39" />
+      <File FileName="UserSession/IUserPreferences.cs" Line="3" Column="35" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

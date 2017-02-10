@@ -1,0 +1,8 @@
+/Users/mansour/Projects/HTTPClient/HTTPClient/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile111.AssemblyAttribute.cs
+/Users/mansour/Projects/HTTPClient/HTTPClient/bin/Debug/HTTPClient.dll.mdb
+/Users/mansour/Projects/HTTPClient/HTTPClient/bin/Debug/HTTPClient.dll
+/Users/mansour/Projects/HTTPClient/HTTPClient/obj/Debug/HTTPClient.dll
+/Users/mansour/Projects/HTTPClient/HTTPClient/obj/Debug/HTTPClient.dll.mdb
+/Users/mansour/Projects/HTTPClient/HTTPClient/bin/Debug/Xamarin.Forms.Core.dll
+/Users/mansour/Projects/HTTPClient/HTTPClient/bin/Debug/Xamarin.Forms.Platform.dll
+/Users/mansour/Projects/HTTPClient/HTTPClient/bin/Debug/Xamarin.Forms.Xaml.dll
