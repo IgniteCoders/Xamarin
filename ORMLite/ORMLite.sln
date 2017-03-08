@@ -1,0 +1,53 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMLite", "ORMLite\ORMLite.csproj", "{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = FileFormatDefault
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = VisualStudio
+		$2.scope = text/plain
+		$2.FileWidth = 120
+		$2.TabsToSpaces = False
+		$2.inheritsScope = text/plain
+		$0.CSharpFormattingPolicy = $3
+		$3.IndentSwitchSection = True
+		$3.NewLinesForBracesInTypes = False
+		$3.NewLinesForBracesInMethods = False
+		$3.NewLineForMembersInObjectInit = True
+		$3.NewLineForMembersInAnonymousTypes = True
+		$3.NewLineForClausesInQuery = True
+		$3.SpaceBeforeOpenSquareBracket = False
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$0.NameConventionPolicy = $4
+		$4.Rules = $5
+		$5.NamingRule = $6
+		$6.Name = Type Parameters
+		$6.AffectedEntity = TypeParameter
+		$6.VisibilityMask = VisibilityMask
+		$6.NamingStyle = PascalCase
+		$6.IncludeInstanceMembers = True
+		$6.IncludeStaticEntities = True
+		$6.RequiredPrefixes = $7
+		$7.String = T
+		$6.RequiredSuffixes = $8
+		$8.String = Exception
+	EndGlobalSection
+EndGlobal

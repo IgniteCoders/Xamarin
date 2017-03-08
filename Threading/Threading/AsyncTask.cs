@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +15,7 @@ namespace Threading {
 				try {
 					result = DoInBackground(parameters);
 				} catch (Exception e) {
-					Debug.WriteLine(e.StackTrace);
+					Debug.WriteLine(e.ToString());
 				}
 			}).ContinueWith(
 			   t => {
