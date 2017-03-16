@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{7FAD3A10-DD05-47E3-A8A2-0F851C7461EC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UserSession.Droid/packages.config">
+    <Files>
+      <File FileName="UserSession.iOS/UserPreferences.cs" Line="1" Column="1" />
+      <File FileName="../../../../../../../Library/Frameworks/Xamarin.Android.framework/Versions/7.1.0-43/lib/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="1" Column="1" />
+      <File FileName="UserSession.Droid/UserPreferences.cs" Line="1" Column="15" />
+      <File FileName="UserSession.Droid/packages.config" Line="1" Column="39" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.UserSession.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+</Properties>

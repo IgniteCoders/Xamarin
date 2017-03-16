@@ -1,10 +1,10 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Localization/Resources/TranslateExtension.cs">
+﻿<Properties StartupConfiguration="{8F6BEE35-A8A3-46B7-A190-8D9FDA41EB88}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Localization.Droid/Locale.cs">
     <Files>
       <File FileName="Localization/Resources/AppResources.resx" Line="49" Column="8" />
       <File FileName="Localization/Resources/AppResources.Designer.cs" Line="11" Column="23" />
-      <File FileName="Localization/Resources/ILocale.cs" Line="3" Column="23" />
-      <File FileName="Localization/Resources/TranslateExtension.cs" Line="12" Column="42" />
+      <File FileName="Localization.iOS/Locale.cs" Line="14" Column="3" />
+      <File FileName="Localization.Droid/Locale.cs" Line="16" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -12,4 +12,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Localization.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
 </Properties>

@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager", "EventManager\EventManager.csproj", "{4BE7BD34-25FC-4874-A5EF-112D1936A9EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager.Driod", "EventManager.Driod\EventManager.Driod.csproj", "{C31D9EFA-D82D-4D8D-BA78-2DF68266BCB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager.iOS", "EventManager.iOS\EventManager.iOS.csproj", "{6E12ADB8-4CC6-4236-8935-2CCEEBB813D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BE7BD34-25FC-4874-A5EF-112D1936A9EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE7BD34-25FC-4874-A5EF-112D1936A9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE7BD34-25FC-4874-A5EF-112D1936A9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE7BD34-25FC-4874-A5EF-112D1936A9EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C31D9EFA-D82D-4D8D-BA78-2DF68266BCB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C31D9EFA-D82D-4D8D-BA78-2DF68266BCB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C31D9EFA-D82D-4D8D-BA78-2DF68266BCB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C31D9EFA-D82D-4D8D-BA78-2DF68266BCB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E12ADB8-4CC6-4236-8935-2CCEEBB813D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E12ADB8-4CC6-4236-8935-2CCEEBB813D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E12ADB8-4CC6-4236-8935-2CCEEBB813D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E12ADB8-4CC6-4236-8935-2CCEEBB813D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
