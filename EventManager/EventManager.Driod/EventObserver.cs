@@ -17,8 +17,10 @@ namespace EventManager.Droid {
 
 		public override void OnReceive(Context context, Intent intent) {
 			Dictionary<string, object> userInfo = new Dictionary<string, object>();
-			foreach (string key in intent.Extras.KeySet()) {
-				userInfo[key] = intent.Extras.GetString(key);
+			if (intent.Extras != null) {
+				foreach (string key in intent.Extras.KeySet()) {
+					userInfo[key] = intent.Extras.GetString(key);
+				}
 			}
 			Event receivedEvent = new Event(intent.Action, userInfo);
 			OnReceive(receivedEvent);

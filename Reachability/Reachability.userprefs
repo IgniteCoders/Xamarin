@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{5EF72588-1C6B-44F2-A684-47FCCFCB7327}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Reachability.Droid/ReachabilityEventReceiver.cs">
+    <Files>
+      <File FileName="Reachability/IConnectivity.cs" Line="8" Column="16" />
+      <File FileName="Reachability.Droid/Connectivity.cs" Line="45" Column="1" />
+      <File FileName="Reachability.iOS/Connectivity.cs" Line="61" Column="4" />
+      <File FileName="Reachability/NetworkStatus.cs" Line="9" Column="8" />
+      <File FileName="Reachability/NetworkManager.cs" Line="10" Column="24" />
+      <File FileName="Reachability.Droid/ReachabilityEventReceiver.cs" Line="15" Column="67" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Reachability.Droid PreferredExecutionTarget="Android.Android_6.0" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

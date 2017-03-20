@@ -18,8 +18,10 @@ namespace EventManager.iOS {
 
 		public void ReportEvent(NSNotification notification) {
 			Dictionary<string, object> userInfo = new Dictionary<string, object>();
-			foreach (NSObject key in notification.UserInfo.Keys) {
-				userInfo[key.ToString()] = notification.UserInfo[key];
+			if (notification.UserInfo != null) {
+				foreach (NSObject key in notification.UserInfo.Keys) {
+					userInfo[key.ToString()] = notification.UserInfo[key];
+				}
 			}
 			Event receivedEvent = new Event(notification.Name, userInfo);
 			OnReceive(receivedEvent);
