@@ -25,7 +25,7 @@ namespace ORMLite {
 
 
 	
-		public virtual bool save() {
+		public virtual bool Save() {
 			if (id != -1 && this.GetTableData().Get(id) != null) {
 				return Update();
 			} else {

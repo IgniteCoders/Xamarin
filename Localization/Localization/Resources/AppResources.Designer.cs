@@ -9,108 +9,180 @@
 // ------------------------------------------------------------------------------
 
 namespace Localization.Resources {
-	using System;
-	using System.Reflection;
-
-
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
-	[System.Diagnostics.DebuggerNonUserCodeAttribute()]
-	[System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-	internal class AppResources {
-
-		private static System.Resources.ResourceManager resourceMan;
-
-		private static System.Globalization.CultureInfo resourceCulture;
-
-		[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-		internal AppResources() {
-		}
-
-		[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-		internal static System.Resources.ResourceManager ResourceManager {
-			get {
-				if (object.Equals(null, resourceMan)) {
-					System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Localization.Resources.AppResources", typeof(AppResources).GetTypeInfo().Assembly);
-					resourceMan = temp;
-				}
-				return resourceMan;
-			}
-		}
-
-		[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-		internal static System.Globalization.CultureInfo Culture {
-			get {
-				return resourceCulture;
-			}
-			set {
-				resourceCulture = value;
-			}
-		}
-
-		internal static string AddButton {
-			get {
-				return ResourceManager.GetString("AddButton", resourceCulture);
-			}
-		}
-
-		internal static string LoginButton {
-			get {
-				return ResourceManager.GetString("LoginButton", resourceCulture);
-			}
-		}
-
-		internal static string ForgotPasswordButton {
-			get {
-				return ResourceManager.GetString("ForgotPasswordButton", resourceCulture);
-			}
-		}
-
-		internal static string GoToRegisterButton {
-			get {
-				return ResourceManager.GetString("GoToRegisterButton", resourceCulture);
-			}
-		}
-
-		internal static string UsernameLabel {
-			get {
-				return ResourceManager.GetString("UsernameLabel", resourceCulture);
-			}
-		}
-
-		internal static string PasswordLabel {
-			get {
-				return ResourceManager.GetString("PasswordLabel", resourceCulture);
-			}
-		}
-
-		internal static string NotesLabel {
-			get {
-				return ResourceManager.GetString("NotesLabel", resourceCulture);
-			}
-		}
-
-		internal static string SaveButton {
-			get {
-				return ResourceManager.GetString("SaveButton", resourceCulture);
-			}
-		}
-
-		internal static string CancelButton {
-			get {
-				return ResourceManager.GetString("CancelButton", resourceCulture);
-			}
-		}
-
-		internal static string SpeakButton {
-			get {
-				return ResourceManager.GetString("SpeakButton", resourceCulture);
-			}
-		}
-
-		internal static string SpeakTaskCount {
-			get {
-				return ResourceManager.GetString("SpeakTaskCount", resourceCulture);
-			}
-		}
-	}
+    using System;
+    using System.Reflection;
+    
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    public class AppResources {
+        
+        private static System.Resources.ResourceManager resourceMan;
+        
+        private static System.Globalization.CultureInfo resourceCulture;
+        
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal AppResources() {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public static System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.Equals(null, resourceMan)) {
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Localization.Resources.AppResources", typeof(AppResources).GetTypeInfo().Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public static System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+        
+        public static string AddButton {
+            get {
+                return ResourceManager.GetString("AddButton", resourceCulture);
+            }
+        }
+        
+        public static string LoginButton {
+            get {
+                return ResourceManager.GetString("LoginButton", resourceCulture);
+            }
+        }
+        
+        public static string ForgotPasswordButton {
+            get {
+                return ResourceManager.GetString("ForgotPasswordButton", resourceCulture);
+            }
+        }
+        
+        public static string GoToRegisterButton {
+            get {
+                return ResourceManager.GetString("GoToRegisterButton", resourceCulture);
+            }
+        }
+        
+        public static string UsernameLabel {
+            get {
+                return ResourceManager.GetString("UsernameLabel", resourceCulture);
+            }
+        }
+        
+        public static string PasswordLabel {
+            get {
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        public static string NotesLabel {
+            get {
+                return ResourceManager.GetString("NotesLabel", resourceCulture);
+            }
+        }
+        
+        public static string SaveButton {
+            get {
+                return ResourceManager.GetString("SaveButton", resourceCulture);
+            }
+        }
+        
+        public static string CancelButton {
+            get {
+                return ResourceManager.GetString("CancelButton", resourceCulture);
+            }
+        }
+        
+        public static string ContinueButton {
+            get {
+                return ResourceManager.GetString("ContinueButton", resourceCulture);
+            }
+        }
+        
+        public static string RetryButton {
+            get {
+                return ResourceManager.GetString("RetryButton", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppLoadingLabel {
+            get {
+                return ResourceManager.GetString("SyncAppLoadingLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppCompletedLabel {
+            get {
+                return ResourceManager.GetString("SyncAppCompletedLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppLoginLabel {
+            get {
+                return ResourceManager.GetString("SyncAppLoginLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppSettingsLabel {
+            get {
+                return ResourceManager.GetString("SyncAppSettingsLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppDeviceTokenLabel {
+            get {
+                return ResourceManager.GetString("SyncAppDeviceTokenLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppUserDataLabel {
+            get {
+                return ResourceManager.GetString("SyncAppUserDataLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppContactsDataLabel {
+            get {
+                return ResourceManager.GetString("SyncAppContactsDataLabel", resourceCulture);
+            }
+        }
+        
+        public static string SyncAppMultimediaDataLabel {
+            get {
+                return ResourceManager.GetString("SyncAppMultimediaDataLabel", resourceCulture);
+            }
+        }
+        
+        public static string LoginErrorAlertTitle {
+            get {
+                return ResourceManager.GetString("LoginErrorAlertTitle", resourceCulture);
+            }
+        }
+        
+        public static string UnexpectedErrorAlertMessage {
+            get {
+                return ResourceManager.GetString("UnexpectedErrorAlertMessage", resourceCulture);
+            }
+        }
+        
+        public static string WrongCredentialsAlertMessage {
+            get {
+                return ResourceManager.GetString("WrongCredentialsAlertMessage", resourceCulture);
+            }
+        }
+        
+        public static string ReachabilityErrorAlertMessage {
+            get {
+                return ResourceManager.GetString("ReachabilityErrorAlertMessage", resourceCulture);
+            }
+        }
+    }
 }

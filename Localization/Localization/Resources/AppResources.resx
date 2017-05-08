@@ -40,10 +40,48 @@
 	<data name="CancelButton" xml:space="preserve">
 		<value>Cancel</value>
 	</data>
-	<data name="SpeakButton" xml:space="preserve">
-		<value>Speak</value>
+	<data name="ContinueButton" xml:space="preserve">
+		<value>Continue</value>
 	</data>
-	<data name="SpeakTaskCount" xml:space="preserve">
-		<value>There are {0} tasks.</value>
+	<data name="RetryButton" xml:space="preserve">
+		<value>Retry</value>
+	</data>
+	<data name="SyncAppLoadingLabel" xml:space="preserve">
+		<value>Espere mientras ponemos su aplicación al día con el servidor...</value>
+	</data>
+	<data name="SyncAppCompletedLabel" xml:space="preserve">
+		<value>Syncronización completada</value>
+	</data>
+	<data name="SyncAppLoginLabel" xml:space="preserve">
+		<value>Renovando sesión...</value>
+	</data>
+	<data name="SyncAppSettingsLabel" xml:space="preserve">
+		<value>Descargando ajustes de configuración...</value>
+	</data>
+	<data name="SyncAppDeviceTokenLabel" xml:space="preserve">
+		<value>Registrando dispositivo...</value>
+	</data>
+	<data name="SyncAppUserDataLabel" xml:space="preserve">
+		<value>Descargando datos personales...</value>
+	</data>
+	<data name="SyncAppContactsDataLabel" xml:space="preserve">
+		<value>Descargando contactos...</value>
+	</data>
+	<data name="SyncAppMultimediaDataLabel" xml:space="preserve">
+		<value>Descargando chats, rutas y multimedia...</value>
+	</data>
+
+<!--		*** Alerts ***				-->
+	<data name="LoginErrorAlertTitle" xml:space="preserve">
+		<value>Login error</value>
+	</data>
+	<data name="UnexpectedErrorAlertMessage" xml:space="preserve">
+		<value>There is an unespected error</value>
+	</data>
+	<data name="WrongCredentialsAlertMessage" xml:space="preserve">
+		<value>There is an credentials mismatch</value>
+	</data>
+	<data name="ReachabilityErrorAlertMessage" xml:space="preserve">
+		<value>You are not connected to internet</value>
 	</data>
 </root>

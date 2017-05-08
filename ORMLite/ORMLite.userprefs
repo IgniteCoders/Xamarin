@@ -1,17 +1,19 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="ORMLite/QueryGenerator.cs">
+﻿<Properties StartupConfiguration="{6F7387A3-CD06-4FEA-8B93-83561F161E46}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ORMLite.iOS/FileManager.cs">
     <Files>
-      <File FileName="ORMLite/PersistentEntity.cs" Line="111" Column="5" />
-      <File FileName="ORMLite/EntityManager.cs" Line="80" Column="7" />
-      <File FileName="ORMLite/QueryGenerator.cs" Line="98" Column="26" />
-      <File FileName="ORMLite/Entities/User.cs" Line="12" Column="3" />
-      <File FileName="ORMLite/DatabaseManager.cs" Line="63" Column="47" />
-      <File FileName="ORMLite/Cursor.cs" Line="6" Column="15" />
+      <File FileName="ORMLite/Utilities/IFileManager.cs" Line="14" Column="34" />
+      <File FileName="ORMLite.Droid/FileManager.cs" Line="17" Column="4" />
+      <File FileName="ORMLite.iOS/FileManager.cs" Line="30" Column="63" />
+      <File FileName="ORMLite/Managers/DatabaseManager.cs" Line="11" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/mansour/Programación/workspaces/workspace-xamarin/ORMLite/ORMLite.iOS/FileManager.cs" relfile="ORMLite.iOS/FileManager.cs" line="29" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ORMLite.Droid PreferredExecutionTarget="Android.Android_6.0" />
+  <MultiItemStartupConfigurations />
 </Properties>

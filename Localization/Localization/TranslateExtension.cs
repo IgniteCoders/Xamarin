@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Diagnostics;
 
 namespace Localization {
 	[ContentProperty("Text")]
@@ -29,7 +30,9 @@ namespace Localization {
 
 			if (translation == null) {
 #if DEBUG
-				throw new ArgumentException(String.Format("Key '{0}' was not found in resources '{1}' for culture '{2}'.", Text, ResourceId, ci.Name), "Text");
+				Exception e = new ArgumentException(String.Format("Key '{0}' was not found in resources '{1}' for culture '{2}'.", Text, ResourceId, ci.Name), "Text");
+				Debug.WriteLine(e.ToString());
+				//throw e;
 #else
                 translation = Text; // HACK: returns the key, which GETS DISPLAYED TO THE USER
 #endif

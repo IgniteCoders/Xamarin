@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMLite", "ORMLite\ORMLite.csproj", "{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMLite.Droid", "ORMLite.Droid\ORMLite.Droid.csproj", "{6F7387A3-CD06-4FEA-8B93-83561F161E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMLite.iOS", "ORMLite.iOS\ORMLite.iOS.csproj", "{06099AE2-2A2F-494A-9055-D4B11B53E5EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE1ED781-1DCF-4D8C-8BC6-2715EFEC7DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F7387A3-CD06-4FEA-8B93-83561F161E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7387A3-CD06-4FEA-8B93-83561F161E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7387A3-CD06-4FEA-8B93-83561F161E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7387A3-CD06-4FEA-8B93-83561F161E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06099AE2-2A2F-494A-9055-D4B11B53E5EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06099AE2-2A2F-494A-9055-D4B11B53E5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06099AE2-2A2F-494A-9055-D4B11B53E5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06099AE2-2A2F-494A-9055-D4B11B53E5EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

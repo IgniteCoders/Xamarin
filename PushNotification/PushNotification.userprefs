@@ -1,0 +1,9 @@
+﻿<Properties StartupConfiguration="{F5CC2A2A-50A3-440B-B858-4945E4F2B10B}|Default">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.PushNotification.Droid PreferredExecutionTarget="Android.Android_6.0" />
+</Properties>

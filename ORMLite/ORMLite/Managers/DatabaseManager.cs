@@ -12,7 +12,7 @@ namespace ORMLite {
 		private SQLiteConnection database;
 
 		public DatabaseManager() {
-			FileManager fileManager = DependencyService.Get<FileManager>();
+			IFileManager fileManager = DependencyService.Get<IFileManager>();
 			dbPath = fileManager.GetLocalFilePath(Configuration.DATABASE_NAME);
 			if (fileManager.FileExists(dbPath)) {
 				database = GetDatabase();

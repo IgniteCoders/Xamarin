@@ -25,7 +25,7 @@ namespace HTTPClient {
 		/** Provide a list of possible responses to validate them; Set to null if you dont want to check */
 		private static readonly String[] VALID_RESPONSES = { "true", "false", "0", "1", "2" };
 		/** If your app will download JSONs, you can set a prefix to validate them. */
-		public const String JSON_PREFIX = "JSONResponse";
+		public static String JSON_PREFIX = "JSONResponse";
 
 		/** Apache HttpClient used for establish connection with server */
 		private static System.Net.Http.HttpClient httpClient;
@@ -98,11 +98,16 @@ namespace HTTPClient {
 
 					HttpContent content = response.Content;
 					String result = await content.ReadAsStringAsync();
+					if (HTTP_CONSOLE_ENABLED) {
+						Debug.WriteLine("HTTP: Result: " + result);
+					}
 					if (result != null && result.Length > 0 && IsValidHttpResponse(result)) {
 						return result;
 					}
-				}
-				if (HTTP_CONSOLE_ENABLED) {
+					if (HTTP_CONSOLE_ENABLED) {
+						Debug.WriteLine("HTTP: Invalid HTTP Response!");
+					}
+				} else if (HTTP_CONSOLE_ENABLED) {
 					Debug.WriteLine("HTTP: Failed!");
 				}
 			} catch (IOException e) {
@@ -143,9 +148,9 @@ namespace HTTPClient {
 	     */
 		public static bool IsValidHttpResponse(String response) {
 			if (VALID_RESPONSES != null) {
-				String replacedResponse = response.Replace("\\n", "");    // Newline
-				replacedResponse = replacedResponse.Replace("\\{", "");    // {
-				replacedResponse = replacedResponse.Replace("\\}", "");    // }
+				String replacedResponse = response.Replace("\n", "");    // Newline
+				replacedResponse = replacedResponse.Replace("{", "");    // {
+				replacedResponse = replacedResponse.Replace("}", "");    // }
 				replacedResponse = replacedResponse.Replace(" ", "");    // White spaces
 				replacedResponse = replacedResponse.Replace("\"", "");    // Double cuotes
 

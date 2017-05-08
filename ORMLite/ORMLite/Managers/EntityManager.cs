@@ -3,6 +3,8 @@ using System.Reflection;
 using System.Collections.Generic;
 using SQLite3Statement = SQLitePCL.sqlite3_stmt;
 using SQLite;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 namespace ORMLite {
 	public class EntityManager<E> where E : PersistentEntity {
 		private TableMapping<E> tableMapping = new TableMapping<E>();
@@ -117,62 +119,59 @@ namespace ORMLite {
 			return values;
 		}
 
-		//		/** Creates an object from the stored data in the JSON.
-		//	     *
-		//	     * @param _JSONObject with the data of the object.
-		//	     * @return the generated instance.
-		//	     */
-		//		public E parse(JSONObject _JSONObject) {
-		//			try {
-		//				Class domainClass = this.getDomainClass();
-		//				E object = (E)domainClass.newInstance();
+		/** Creates an object from the stored data in the JSON.
+	     *
+	     * @param _JSONObject with the data of the object.
+	     * @return the generated instance.
+	     */
+		public E Parse(string _JSONObject) {
+			return JsonConvert.DeserializeObject<E>(_JSONObject);
+		//	try {
+		//		Class domainClass = this.getDomainClass();
+		//		E object = (E)domainClass.newInstance();
 
-		//				for (Field field : this.getColumnFields()) {
-		//					object = (E)EntityFieldHelper.setFieldFromJSONObject(object, field, _JSONObject);
-		//				}
-
-		//				Class superClass = domainClass.getSuperclass();
-		//				PersistentEntity superObject = null;
-		//				if (superClass != PersistentEntity.class) {
-		//	                try {
-		//	                    superObject = ((PersistentEntity) superClass.newInstance()).getTableData().parse(_JSONObject);
-		//		Reflections.setInstanceFromSuperInstance(object, superObject);
-		//	                } catch (Exception e) {
-		//	                    e.printStackTrace();
-		//	                }
-		//	            }
-
-		//	            return object;
-		//	        } catch (Exception e) {
-		//	            e.printStackTrace();
-		//	            return null;
-		//	        }
-		//	    }
-
-
-		//	    /** Creates a list with objects from the stored data in the JSON.
-		//	     *
-		//	     * @param _JSONList with the data of the JSON array list.
-		//	     * @return the generated list.
-		//	     */
-		//	    public List<E> parse(JSONArray _JSONList) {
-		//	List<E> list = null;
-		//	if (_JSONList != null && _JSONList.length() > 0) {
-		//		list = new ArrayList<E>();
-		//		for (int i = 0; i < _JSONList.length(); i++) {
-		//			try {
-		//				JSONObject JSONObject = _JSONList.getJSONObject(i);
-		//				E object = parse(JSONObject);
-		//				if (object != null) {
-		//					list.add(object);
-		//				}
-		//			} catch (JSONException e) {
-		//				e.printStackTrace();
-		//			}
+		//		for (Field field : this.getColumnFields()) {
+		//			object = (E)EntityFieldHelper.setFieldFromJSONObject(object, field, _JSONObject);
 		//		}
-		//	}
-		//	return list;
-		//}
+
+		//		Class superClass = domainClass.getSuperclass();
+		//		PersistentEntity superObject = null;
+		//		if (superClass != PersistentEntity.class) {
+	 //               try {
+	 //                   superObject = ((PersistentEntity) superClass.newInstance()).getTableData().parse(_JSONObject);
+		//Reflections.setInstanceFromSuperInstance(object, superObject);
+	 //               } catch (Exception e) {
+	 //                   e.printStackTrace();
+	 //               }
+	 //           }
+
+	 //           return object;
+	 //       } catch (Exception e) {
+	 //           e.printStackTrace();
+	 //           return null;
+	 //       }
+	    }
+
+
+	    /** Creates a list with objects from the stored data in the JSON.
+	     *
+	     * @param _JSONList with the data of the JSON array list.
+	     * @return the generated list.
+	     */
+		public List<E> Parse(List<String> _JSONList) {
+			List<E> list = null;
+			if (_JSONList != null && _JSONList.Count > 0) {
+				list = new List<E>();
+				for (int i = 0; i<_JSONList.Count; i++) {
+					string JSONObject = _JSONList[i];
+					E o = Parse(JSONObject);
+					if (o != null) {
+						list.Add(o);
+					}
+				}
+			}
+			return list;
+		}
 
 		///** Creates a <code>JSONObject</code> from the object.
 		// *
@@ -278,7 +277,7 @@ namespace ORMLite {
 		public E GetByField(String key, Object value) {
 			Open();
 			E obj = null;
-			String sqlQuery = QueryGenerator<E>.SelectQuery(tableMapping, key + "=" + value.ToString());
+			String sqlQuery = QueryGenerator<E>.SelectQuery(tableMapping, key + "='" + value.ToString() + "'");
 			Cursor cursor = databaseManager.Select(sqlQuery);
 			try {
 				if (cursor.MoveToNext()) {
