@@ -31,7 +31,7 @@ namespace Threading {
 
 		public void Execute(Dictionary<String, Params> parameters) {
 			Result result = default(Result);
-
+			PreExecute();
 			Task.Factory.StartNew(() => {
 				try {
 					result = DoInBackground(parameters);

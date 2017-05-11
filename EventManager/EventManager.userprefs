@@ -11,9 +11,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/mansour/Programación/workspaces/workspace-xamarin/EventManager/EventManager.Shared/EventObserver.cs" line="21" column="1" />
+      <Breakpoint file="/Users/mansour/Programación/workspaces/workspace-xamarin/EventManager/EventManager.Shared/EventObserver.cs" relfile="EventManager.Shared/EventObserver.cs" line="21" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.EventManager.Driod PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.EventManager.Driod PreferredExecutionTarget="Android.Android_6.0" />
 </Properties>

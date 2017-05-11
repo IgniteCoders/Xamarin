@@ -48,8 +48,8 @@ namespace ORMLite {
 					column.property.SetValue(obj, value);
 				}*/
 
-				for (int i = 1; i <= this.tableMapping.columns.Length; i++) {
-					ColumnInfo column = this.tableMapping.columns[i-1];
+				for (int i = 1; i <= this.tableMapping.columns.Length; i ++) {
+					ColumnInfo column = this.tableMapping.columns[i - 1];
 					if (column.IsPrimitiveField) {
 						object value = cursor.GetValue(i, column.propertyType);
 						column.property.SetValue(obj, value);
@@ -57,12 +57,12 @@ namespace ORMLite {
 						object value = cursor.GetValue<long>(i);
 						PersistentEntity relationObject = (PersistentEntity)Activator.CreateInstance(column.propertyType);
 						if (Reflections.IsAttributePresent(column.property, typeof(BelongsTo)) ||
-						    ( Reflections.IsAttributePresent(column.property, typeof(HasOne)) && 
-						     ((HasOne)Reflections.GetAttribute(column.property, typeof(HasOne))).lazy )) {
+							(Reflections.IsAttributePresent(column.property, typeof(HasOne)) &&
+							 ((HasOne)Reflections.GetAttribute(column.property, typeof(HasOne))).lazy)) {
 							relationObject.SetServerId((long)value);
 							column.property.SetValue(obj, relationObject);
 						} else {
-							value = relationObject.GetTableData().Get((dynamic)value);
+							value = relationObject.GetTableData().GetByServerId((dynamic)value);
 							column.property.SetValue(obj, value);
 						}
 					} else if (column.IsMultipleRelationship) {
@@ -89,7 +89,7 @@ namespace ORMLite {
 
 				return obj;
 			} catch (Exception e) {
-				SQLConsole.WriteLine(e.StackTrace);
+				SQLConsole.WriteLine(e.ToString());
 				return null;
 			}
 		}
@@ -99,10 +99,10 @@ namespace ORMLite {
 	     * @param object to be converted in a <code>ContentValues</code> for persistent context
 	     * @return the generated <code>ContentValues</code>.
 	     */
-		public Dictionary<String, object> GetContentValues (E obj) {
-			Dictionary<String, object> values = new Dictionary<String, object> ();
-			if (obj.GetId () != -1) {
-				values[Configuration.ID_COLUMN_NAME] = obj.GetId ();
+		public Dictionary<String, object> GetContentValues(E obj) {
+			Dictionary<String, object> values = new Dictionary<String, object>();
+			if (obj.GetId() != -1) {
+				values[Configuration.ID_COLUMN_NAME] = obj.GetId();
 			}
 
 			foreach (ColumnInfo column in this.tableMapping.columns) {
@@ -124,50 +124,64 @@ namespace ORMLite {
 	     * @param _JSONObject with the data of the object.
 	     * @return the generated instance.
 	     */
-		public E Parse(string _JSONObject) {
-			return JsonConvert.DeserializeObject<E>(_JSONObject);
-		//	try {
-		//		Class domainClass = this.getDomainClass();
-		//		E object = (E)domainClass.newInstance();
+		public E Parse(JToken _JSONObject) {
+			try {
+				E obj = (E)Activator.CreateInstance(tableMapping.type);
+				for (int i = 0; i < this.tableMapping.columns.Length; i++) {
+					ColumnInfo column = this.tableMapping.columns[i];
+					if (column.IsPrimitiveField) {
+						if (_JSONObject[column.name] != null) {
+							object value = column.propertyType == typeof(String) ? _JSONObject[column.name].Value<String>() : JsonConvert.DeserializeObject(_JSONObject[column.name].ToString(), column.propertyType);
+							column.property.SetValue(obj, value);
+						} else {
+							column.property.SetValue(obj, null);
+						}
+					} else if (column.IsSingleRelationship) {
+						object value = null;
+						PersistentEntity relationObject = (PersistentEntity)Activator.CreateInstance(column.propertyType);
 
-		//		for (Field field : this.getColumnFields()) {
-		//			object = (E)EntityFieldHelper.setFieldFromJSONObject(object, field, _JSONObject);
-		//		}
+						if (_JSONObject[QueryGenerator<E>.ColumnName(column)] != null) {
+							relationObject.SetServerId(JsonConvert.DeserializeObject<long>(_JSONObject[QueryGenerator<E>.ColumnName(column)].ToString()));
+							value = relationObject;
+						} else if (_JSONObject[column.property.Name] != null) {
+							value = relationObject.GetTableData().Parse(_JSONObject[column.name]);
+						}
 
-		//		Class superClass = domainClass.getSuperclass();
-		//		PersistentEntity superObject = null;
-		//		if (superClass != PersistentEntity.class) {
-	 //               try {
-	 //                   superObject = ((PersistentEntity) superClass.newInstance()).getTableData().parse(_JSONObject);
-		//Reflections.setInstanceFromSuperInstance(object, superObject);
-	 //               } catch (Exception e) {
-	 //                   e.printStackTrace();
-	 //               }
-	 //           }
+						column.property.SetValue(obj, value);
+					} else if (column.IsMultipleRelationship) {
+						if (_JSONObject[column.name] != null) {
+							PersistentEntity relationObject = (PersistentEntity)Activator.CreateInstance(column.propertyType.GenericTypeArguments[0]);
+							List<PersistentEntity> value = relationObject.GetTableData().Parse(JArray.Parse(_JSONObject[column.name].ToString()));
+							column.property.SetValue(obj, value);
+						} else {
+							column.property.SetValue(obj, null);
+						}
+					}
+				}
 
-	 //           return object;
-	 //       } catch (Exception e) {
-	 //           e.printStackTrace();
-	 //           return null;
-	 //       }
-	    }
+				Type baseType = Reflections.GetBaseType(this.tableMapping.type);
+				if (baseType != typeof(PersistentEntity)) {
+					Reflections.SetInstanceFromSuperInstance(obj, ((PersistentEntity)Activator.CreateInstance(baseType)).GetTableData().Parse(_JSONObject));
+				}
+				return obj;
+			} catch (Exception e) {
+				SQLConsole.WriteLine(e.ToString());
+				return null;
+			}
+		}
 
 
-	    /** Creates a list with objects from the stored data in the JSON.
+		/** Creates a list with objects from the stored data in the JSON.
 	     *
 	     * @param _JSONList with the data of the JSON array list.
 	     * @return the generated list.
 	     */
-		public List<E> Parse(List<String> _JSONList) {
+		public List<E> Parse(JArray _JSONList) {
 			List<E> list = null;
 			if (_JSONList != null && _JSONList.Count > 0) {
 				list = new List<E>();
-				for (int i = 0; i<_JSONList.Count; i++) {
-					string JSONObject = _JSONList[i];
-					E o = Parse(JSONObject);
-					if (o != null) {
-						list.Add(o);
-					}
+				foreach (JToken o in _JSONList) {
+					list.Add(Parse(o));
 				}
 			}
 			return list;
@@ -223,16 +237,16 @@ namespace ORMLite {
 			return superObject;
 		}
 
-	    /**
+		/**
 	     * Convenience method for persisting a object into the database.
 	     *
 	     * @param object the object to persist in the database
 	     * @throws SQLException
 	     * @return the row ID of the newly persisted object, or -1 if an error occurred
 	     */
-	    public long Insert(E obj) {
+		public long Insert(E obj) {
 			Open();
-			databaseManager.Execute(QueryGenerator<E>.InsertQuery(tableMapping, GetContentValues (obj)));
+			databaseManager.Execute(QueryGenerator<E>.InsertQuery(tableMapping, GetContentValues(obj)));
 			long insertedId = databaseManager.InsertId();
 			Close();
 			return insertedId;
@@ -247,7 +261,7 @@ namespace ORMLite {
 		 */
 		public int Update(E obj) {
 			Open();
-			int updatedRows = databaseManager.Execute (QueryGenerator<E>.UpdateQuery (tableMapping, GetContentValues (obj)));
+			int updatedRows = databaseManager.Execute(QueryGenerator<E>.UpdateQuery(tableMapping, GetContentValues(obj)));
 			Close();
 			return updatedRows;
 		}
@@ -260,7 +274,7 @@ namespace ORMLite {
 		 */
 		public int Delete(E obj) {
 			Open();
-			int deletedRows = databaseManager.Execute (QueryGenerator<E>.DeleteQuery (tableMapping, obj.GetId()));
+			int deletedRows = databaseManager.Execute(QueryGenerator<E>.DeleteQuery(tableMapping, obj.GetId()));
 			Close();
 			return deletedRows;
 		}
@@ -289,7 +303,7 @@ namespace ORMLite {
 				try {
 					cursor.Close();
 				} catch (Exception e) {
-					SQLConsole.WriteLine (e.StackTrace);
+					SQLConsole.WriteLine(e.StackTrace);
 				}
 				Close();
 			}
@@ -374,37 +388,37 @@ namespace ORMLite {
 			return listObjects;
 		}
 
-		//public List<E> getAllWithCriteria(CriteriaBuilder criteria) {
-		//	List<E> listObjects = new ArrayList<E>();
-		//	open();
-		//	String sqlQry = SQLiteQueryBuilder.buildQueryString(false, getTableName(), getColumnNames(), criteria.query(), criteria.groupBy(), criteria.having(), criteria.orederBy(), null);
-		//	SQLConsole.Log(sqlQry);
-		//	Cursor cursor = database.query(getTableName(), getColumnNames(), criteria.query(), null, criteria.groupBy(), criteria.having(), criteria.orederBy());
-		//	try {
-		//		for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-		//			E object = cursorToEntity(cursor);
-		//			listObjects.add(object);
-		//		}
-		//	} catch (Exception e) {
-		//		e.printStackTrace();
-		//	} finally {
-		//		try {
-		//			cursor.close();
-		//		} catch (Exception e) {
-		//			e.printStackTrace();
-		//		}
-		//		close();
-		//	}
-		//	return listObjects;
-		//}
+		public List<E> GetAllWithCriteria(CriteriaBuilder criteria) {
+			List<E> listObjects = new List<E>();
+			Open();
+			String sqlQuery = QueryGenerator<E>.SelectQuery(tableMapping, criteria.Query(), criteria.GroupBy(), criteria.Having(), criteria.OrederBy(), criteria.Limit(), criteria.Distinct());
+			SQLConsole.WriteLine(sqlQuery);
+			Cursor cursor = databaseManager.Select(sqlQuery);
+			try {
+				for (cursor.MoveToNext(); !cursor.IsAfterLast(); cursor.MoveToNext()) {
+					E obj = CursorToEntity(cursor);
+					listObjects.Add(obj);
+				}
+			} catch (Exception e) {
+				SQLConsole.WriteLine(e.StackTrace);
+			} finally {
+				try {
+					cursor.Close();
+				} catch (Exception e) {
+					SQLConsole.WriteLine(e.StackTrace);
+				}
+				Close();
+			}
+			return listObjects;
+		}
 
-		//public E getWithCriteria(CriteriaBuilder criteria) {
-		//	List<E> listObjects = getAllWithCriteria(criteria);
-		//	if (listObjects.size() > 0) {
-		//		return listObjects.get(0);
-		//	} else {
-		//		return null;
-		//	}
-		//}
+		public E GetWithCriteria(CriteriaBuilder criteria) {
+			List<E> listObjects = GetAllWithCriteria(criteria);
+			if (listObjects.Count > 0) {
+				return listObjects[0];
+			} else {
+				return null;
+			}
+		}
 	}
 }
